@@ -46,7 +46,13 @@
                 return false;
         };
         input.onkeyup = function () {
-            
+            if (this.value == result) {
+                console.log(this.value + " == " + result);
+                console.log("acertou");
+            } else {
+                console.log(this.value + " == " + result);
+                console.log("errou");
+            }
         };
     };
     w.onload = main;
