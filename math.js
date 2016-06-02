@@ -34,6 +34,20 @@
         div.appendChild(input);
         b.appendChild(div);
         input.focus();
+        input.onkeypress = function (e) {
+            var tecla = new Number();
+            if (w.event)
+                tecla = e.keyCode;
+            else if (e.which)
+                tecla = e.which;
+            else
+                return true;
+            if (tecla >= "97" && tecla <= "122")
+                return false;
+        };
+        input.onkeyup = function () {
+            
+        };
     };
     w.onload = main;
 })(window);
