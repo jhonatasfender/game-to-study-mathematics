@@ -28,6 +28,7 @@
                             break;
                     }
                 };
+        b.style.backgroundImage = "url(blackboard.jpg)";
         calculation();
         div.appendChild(text);
         input.style.borderStyle = "none";
