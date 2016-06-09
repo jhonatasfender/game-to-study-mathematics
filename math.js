@@ -29,9 +29,18 @@
                     }
                 };
         b.style.backgroundImage = "url(blackboard.jpg)";
+        b.style.fontFamily = "appleberry";
+        b.style.fontSize = "200px";
+        b.style.color = "white";
+        b.style.textAlign = "center";
         calculation();
         div.appendChild(text);
         input.style.borderStyle = "none";
+        input.style.fontFamily = "appleberry";
+        input.style.fontSize = "200px";
+        input.style.color = "white";
+        input.style.width = "411px";
+        input.style.background = "transparent";
         div.appendChild(input);
         b.appendChild(div);
         input.focus();
@@ -47,12 +56,22 @@
                 return false;
         };
         input.onkeyup = function () {
-            if (this.value == result) {
-                console.log(this.value + " == " + result);
-                console.log("acertou");
+            var elements = document.getElementsByTagName("p");
+            for (var n = 0; n < elements.length; n++) {
+                var element = elements[n];
+                element.parentNode.removeChild(element); // should work now
+            }
+            if (this.value.trim() == result) {
+                var t = d.createTextNode("Acertou " + result), p = d.createElement('p');
+                p.appendChild(t);
+                div.appendChild(p);
+                main();
             } else {
-                console.log(this.value + " == " + result);
-                console.log("errou");
+                /*console.log(this.value + " == " + result);
+                 console.log("errou");*/
+                var t = d.createTextNode("Errou " + result), p = d.createElement('p');
+                p.appendChild(t);
+                div.appendChild(p);
             }
         };
     };
